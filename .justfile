@@ -7,6 +7,9 @@ create-venv:
 source-venv:
     source .venv/bin/activate
 
+install-python:
+    pip install -r requirements.txt
+
 basic-python:
     python python/rust_meetup_pyo3/basic_python.py
 
@@ -15,5 +18,8 @@ rust-python:
 
 maturin-develop:
     maturin develop
+
+python-test:
+    PYTHONPATH=python/rust_meetup_pyo3 pytest -v .
 
 
