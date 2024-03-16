@@ -22,4 +22,6 @@ maturin-develop:
 python-test:
     PYTHONPATH=python/rust_meetup_pyo3 pytest -v .
 
-
+marp:
+    marp slide-deck.md
+    open slide-deck.html
