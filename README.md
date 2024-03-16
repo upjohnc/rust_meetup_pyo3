@@ -1,0 +1,1 @@
+- used maturin new to start rust + python project

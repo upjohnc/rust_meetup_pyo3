@@ -1,4 +1,4 @@
-class Math:
+class Math_:
     def __init__(self, left, right):
         self.left = left
         self.right = right
@@ -10,12 +10,12 @@ class Math:
         return self.left * self.right
 
 
-def concat_(left, right):
+def concat_(left: str, right: str) -> str:
     return f"{left}-{right}"
 
 
 if __name__ == "__main__":
-    m = Math(3, 6)
+    m = Math_(3, 6)
     print(f"Mulitplication: {m.mult()}")
     print(f"Addition: {m.add()}")
 
