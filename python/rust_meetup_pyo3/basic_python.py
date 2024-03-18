@@ -1,12 +1,12 @@
 class Math_:
-    def __init__(self, left, right):
+    def __init__(self, left: int, right: int):
         self.left = left
         self.right = right
 
-    def add(self):
+    def add(self) -> int:
         return self.left + self.right
 
-    def mult(self):
+    def mult(self) -> int:
         return self.left * self.right
 
 

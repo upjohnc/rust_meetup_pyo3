@@ -2,7 +2,7 @@ use pyo3::prelude::*;
 
 /// Concat two strings
 #[pyfunction]
-fn concat_(a: String, b: String) -> PyResult<String> {
+fn concat_(a: &str, b: &str) -> PyResult<String> {
     Ok(format!("{}-{}", a, b))
 }
 
@@ -30,7 +30,7 @@ impl Math_ {
 
 #[pymodule]
 fn rust_meetup_pyo3(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(concat_,m)?)?;
+    m.add_function(wrap_pyfunction!(concat_, m)?)?;
     m.add_class::<Math_>()?;
     Ok(())
 }
@@ -43,20 +43,20 @@ mod tests {
     fn test_concat() {
         let left = "a".to_string();
         let right = "b".to_string();
-        let result = concat_(left.clone(), right.clone()).unwrap();
+        let result = concat_(&left, &right).unwrap();
         assert_eq!(result, format!("{}-{}", left, right));
     }
 
     #[test]
     fn test_mult() {
-        let m= Math_::new(1, 2);
+        let m = Math_::new(1, 2);
         let result = m.mult();
         assert_eq!(result, 2);
     }
 
     #[test]
     fn test_add() {
-        let m= Math_::new(1, 2);
+        let m = Math_::new(1, 2);
         let result = m.add();
         assert_eq!(result, 3);
     }
